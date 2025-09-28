@@ -36,11 +36,15 @@ app.post("/buscar", async (req, res) => {
         if (!response.ok) throw new Error("Pokémon no encontrado");
         const data = await response.json();
 
+        //tomo el primer tipo del Pokémon
+        const tipo = data.types[0].type.name;
+
         res.render("resultado", {
             nombre: data.name.toUpperCase(),
             altura: data.height,
             peso: data.weight,
-            imagen: data.sprites.front_default
+            imagen: data.sprites.front_default,
+            tipo: tipo
         });
     } catch (error) {
         res.send(`<p>${error.message}</p><a href="/">Volver</a>`);
