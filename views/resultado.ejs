@@ -5,12 +5,16 @@
   <title><%= nombre %></title>
   <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-  <h1><%= nombre %></h1>
-  <p>Altura: <%= altura %></p>
-  <p>Peso: <%= peso %></p>
-  <img src="<%= imagen %>" alt="<%= nombre %>">
-  <br><br>
-  <a href="/">Buscar otro</a>
+    <h1>Pokédex</h1>
+
+    <div class="card">
+        <h2><%= nombre %></h2>
+        <img src="<%= imagen %>" alt="<%= nombre %>">
+        <p><strong>Altura: </strong><%= altura %></p>
+        <p><strong>Peso: </strong><%= peso %></p>
+        <a href="/" class="btn">Buscar otro</a>
+    </div>
 </body>
 </html>
