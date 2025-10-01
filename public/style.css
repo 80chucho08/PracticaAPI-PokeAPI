@@ -1,0 +1,13 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f8ff;
+}
+
+#resultado {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid #2a75bb;
+  border-radius: 10px;
+  display: inline-block;
+}
