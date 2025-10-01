@@ -1,8 +1,10 @@
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
   background-color: #f0f8ff;
+  text-align: center;
+  padding: 50px;
 }
+
 
 #resultado {
   margin-top: 20px;
@@ -11,3 +13,77 @@ body {
   border-radius: 10px;
   display: inline-block;
 }
+
+h1 {
+  color: #2a75bb;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ffcb05;
+  color: #2a75bb;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #ffde59;
+}
+
+.card {
+  border: 3px solid #2a75bb;
+  border-radius: 15px;
+  width: 300px;
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: white; /* color por defecto, se puede sobreescribir */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card img {
+  width: 150px;
+  height: 150px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Colores según tipo */
+.card.fire { background-color: #F08030; }
+.card.water { background-color: #6890F0; }
+.card.grass { background-color: #78C850; }
+.card.electric { background-color: #F8D030; color: black; }
+.card.ice { background-color: #98D8D8; color: black; }
+.card.fighting { background-color: #C03028; }
+.card.poison { background-color: #A040A0; }
+.card.ground { background-color: #E0C068; color: black; }
+.card.flying { background-color: #A890F0; color: black; }
+.card.psychic { background-color: #F85888; }
+.card.bug { background-color: #A8B820; color: black; }
+.card.rock { background-color: #B8A038; }
+.card.ghost { background-color: #705898; }
+.card.dark { background-color: #705848; }
+.card.dragon { background-color: #7038F8; }
+.card.steel { background-color: #B8B8D0; color: black; }
+.card.fairy { background-color: #EE99AC; color: black; }
+.card.normal { background-color: #A8A878; color: black; }
