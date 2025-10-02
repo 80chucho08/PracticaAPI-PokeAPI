@@ -1,9 +1,35 @@
+const tipoBusqueda = document.getElementById("tipoBusqueda");
+const valorBusqueda = document.getElementById("valorBusqueda");
+const resultado = document.getElementById("resultado");
+
+// cada vez que cambia el tipo de búsqueda
+tipoBusqueda.addEventListener("change", () => {
+    valorBusqueda.value = ""; // limpia el campo al cambiar
+    if (tipoBusqueda.value === "id") {
+        valorBusqueda.setAttribute("type", "number");  // solo números
+        valorBusqueda.setAttribute("min", "1");        // opcional: no permite 0 ni negativos
+    } else {
+        valorBusqueda.setAttribute("type", "text");    // texto libre
+        valorBusqueda.removeAttribute("min");
+    }
+});
+
+// validación en vivo mientras escribes
+valorBusqueda.addEventListener("input", () => {
+    if (tipoBusqueda.value === "id") {
+        // elimina cualquier caracter que no sea número
+        valorBusqueda.value = valorBusqueda.value.replace(/[^0-9]/g, "");
+    } else {
+        // elimina cualquier número
+        valorBusqueda.value = valorBusqueda.value.replace(/[0-9]/g, "");
+    }
+});
+
+// cuando se envía el formulario
 document.getElementById("form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const tipoBusqueda = document.getElementById("tipoBusqueda").value;
-    const valor = document.getElementById("valorBusqueda").value.toLowerCase();
-    const resultado = document.getElementById("resultado");
+    const valor = valorBusqueda.value.toLowerCase();
 
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${valor}`);
@@ -41,17 +67,18 @@ document.getElementById("form").addEventListener("submit", async (e) => {
         }
 
         resultado.innerHTML = `
-  <div class="card" style="background: ${colorFondo};">
-    <h2>${data.name.toUpperCase()} (#${data.id})</h2>
-    <img src="${data.sprites.front_default}" alt="${data.name}">
-    <p><strong>Altura:</strong> ${data.height}</p>
-    <p><strong>Peso:</strong> ${data.weight}</p>
-    <p><strong>Tipo:</strong> ${tipos.join(", ")}</p>
-  </div>
-`;
+          <div class="card" style="background: ${colorFondo};">
+            <h2>${data.name.toUpperCase()} (#${data.id})</h2>
+            <img src="${data.sprites.front_default}" alt="${data.name}">
+            <p><strong>Altura:</strong> ${data.height}</p>
+            <p><strong>Peso:</strong> ${data.weight}</p>
+            <p><strong>Tipo:</strong> ${tipos.join(", ")}</p>
+          </div>
+        `;
 
-        document.getElementById("valorBusqueda").value = "";
+        valorBusqueda.value = "";
     } catch (error) {
         resultado.innerHTML = `<p style="color:red">${error.message}</p>`;
     }
 });
+
