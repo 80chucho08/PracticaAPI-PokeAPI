@@ -23,6 +23,15 @@ form {
 }
 
 input[type="text"] {
+  width: 230px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+input[type="number"] {
+  width: 230px;
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
