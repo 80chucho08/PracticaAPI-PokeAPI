@@ -47,6 +47,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   </div>
 `;
 
+        document.getElementById("nombre").value = "";
     } catch (error) {
         resultado.innerHTML = `<p style="color:red">${error.message}</p>`;
     }
