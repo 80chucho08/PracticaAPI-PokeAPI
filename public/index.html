@@ -8,7 +8,11 @@
 <body>
     <h1>Pokédex</h1>
     <form id="form">
-        <input type="text" id="nombre" placeholder="Nombre del pokemon">
+        <select id="tipoBusqueda">
+            <option value="nombre">Nombre</option>
+            <option value="id">ID</option>
+        </select>
+        <input type="text" id="valorBusqueda" placeholder="Nombre del pokemon o ID" required>
         <button type="submit">Buscar</button>
     </form>
     <div id="resultado"></div>
