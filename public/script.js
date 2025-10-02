@@ -1,14 +1,17 @@
 document.getElementById("form").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const nombre = document.getElementById("nombre").value.toLowerCase();
+
+    const tipoBusqueda = document.getElementById("tipoBusqueda").value;
+    const valor = document.getElementById("valorBusqueda").value.toLowerCase();
     const resultado = document.getElementById("resultado");
 
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${valor}`);
         if (!response.ok) throw new Error("Pokémon no encontrado");
 
         const data = await response.json();
         const tipos = data.types.map(t => t.type.name);
+
         const colores = {
             fire: "#F08030",
             water: "#6890F0",
@@ -47,7 +50,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   </div>
 `;
 
-        document.getElementById("nombre").value = "";
+        document.getElementById("valorBusqueda").value = "";
     } catch (error) {
         resultado.innerHTML = `<p style="color:red">${error.message}</p>`;
     }
