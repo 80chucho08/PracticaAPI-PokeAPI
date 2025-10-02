@@ -45,6 +45,15 @@ button:hover {
   background-color: #ffde59;
 }
 
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  margin-right: 10px;
+}
+
+
 .card {
   border: 3px solid #2a75bb;
   border-radius: 15px;
